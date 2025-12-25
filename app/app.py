@@ -1,11 +1,14 @@
 from flask import Flask, jsonify, request, render_template
 import pickle
 import pandas as pd
+import os
 
 app = Flask(__name__)
 
 def load_model():
-    model_file = open('C:\\Users\\yahaf\\OneDrive\\Desktop\\vehicles-count-pred-proj\\model\\model.pkl', 'rb')
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    MODEL_PATH = os.path.join(BASE_DIR, "..", "model", "model.pkl")
+    model_file = open(MODEL_PATH, 'rb')
     model = pickle.load(model_file)
     return model
 
