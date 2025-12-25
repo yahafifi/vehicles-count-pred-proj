@@ -38,4 +38,5 @@ def predict_vehicles_count():
 def show_form():
     return render_template('form.html')
 
-app.run()
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=False)
